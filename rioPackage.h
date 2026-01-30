@@ -20,10 +20,10 @@
 
 /* Persistent state for the robus I/O (rio) package */
 typedef struct {
-	int rio_fd                 /*Descriptor for this internal buf */
-	int rio_cnt                /*Unread bytes in internal buf */
-	char *rio_bufptr           /*Next unread  byte in internal buf */
-	char rio_buf[RIO_BUFSIZE]  /*INTERNAL BUFFER */
+	int rio_fd;                 /*Descriptor for this internal buf */
+	int rio_cnt;                /*Unread bytes in internal buf */
+	char *rio_bufptr;           /*Next unread  byte in internal buf */
+	char rio_buf[RIO_BUFSIZE];  /*INTERNAL BUFFER */
 }rio_t;
 
 
@@ -43,4 +43,6 @@ ssize_t Rio_readnb(rio_t *rp, void *usrbuf, size_t n);
 ssize_t Rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen);
 
 
+/* Misc constants */
+#define  MAXLINE 8192    /*Max text line length */
 #endif /* RIO_PACKAGE_H */
